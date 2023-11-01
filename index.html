@@ -9,7 +9,435 @@
     <script src="https://connect.rbcpayplan.com/sdk.js"></script>
 </head>
 
-<div id="placement"></div>
+  <body>
+
+
+    <style>
+
+      <!--
+          /* ADJUST YOUR PRIMARY AND SECONDARY FONTS HERE */
+          @import url("https://fonts.googleapis.com/css2?family=Roboto");
+          @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+
+          /* SET UNIVERSAL COLORS AND IMAGE HERE */
+
+            :root {
+            --brand-color-medium: #006ac3;
+            --buttons-hover-color: #006ac3;
+            --header-color: #006ac3;
+            --background-photo-url: url('');
+            --brand-font-family: 'Roboto',Helvetica,sans-serif;
+            --font-color:#1E2E36;
+          }
+
+          body {
+            margin: 0;
+            padding: 0;
+          }
+
+
+          .payplan-content-inner {
+            position: absolute;
+            width: 90%;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+
+          .payplan-points {
+            margin-top: 50px;
+          }
+
+          .payplan-section {
+            position: relative;
+            width: 100%;
+            text-align: center;
+          }
+
+
+          .payplan-style {
+            box-sizing: border-box;
+            font-family: var(--brand-font-family);
+            font-size: 16px;
+          }
+
+          .payplan-main p {
+            color: var(--font-color);
+          }
+
+          .payplan-header {
+            min-height: 350px;
+            background: var(--header-color);
+            color: #fff;
+            background-size: 150px;
+            background-position: center;
+            background-color: #006ac3;
+            background-repeat: repeat;
+
+
+          }
+
+          .payplan-header h1 {
+            margin: 0;
+            font-family: var(--brand-font-family);
+            font-size: 50px;
+            line-height: 50px;
+            font-weight: 800;
+            color:#fff;
+          }
+
+          .payplan-header p {
+            margin: 2em 0;
+          }
+
+          .payplan-header .payplan-content-inner p {
+            color: white;
+          }
+
+
+          .payplan-style h2 {
+            font-family: var(--brand-font-family);
+            font-style: normal;
+            font-weight: 800;
+            font-size: 40px;
+            line-height: 49px;
+            color: var(--font-color);
+          }
+
+
+          .payplan-style h3 {
+            margin: 0;
+            font-family: var(--brand-font-family);
+            font-size: 1em;
+            color: var(--font-color);
+          }
+
+
+          .payplan-main {
+            background: #fff;
+            color: #333;
+          }
+
+
+          .payplan-check-your-rate {
+            color: #FFFFFF;
+            font-family: var(--brand-font-family);
+            background: #006ac3;
+            margin-bottom: 20px;
+            font-size: 23px;
+            line-height: 40px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            max-width: 625px;
+            width: 80%;
+            margin: 0 auto;
+          }
+
+          /* 'CHECK YOUR RATE' BOX */
+          .payplan-rate-box {
+            height: 250px;
+            background: #006ac3;
+            color: #333;
+          }
+
+         /* .payplan-footer {
+            background: #edeeef;
+            color: #333;
+            overflow-wrap: break-word;
+            margin: auto; */
+
+          }
+
+          .payplan-contact {
+            margin-bottom: 50px;
+          }
+
+          .payplan-disclosure {
+            font-size: 14px;
+            margin: 0 auto;
+            width: 70%;
+            padding: 10px 0;
+          }
+
+          a,
+          .payplan-contact-info {
+            text-decoration: none;
+            color: var(--brand-color-medium);
+          }
+
+      .bread-promo a {
+        color: white;
+      }
+
+
+
+      .bread-promo.one {
+            background: var(--buttons-hover-color);
+            border-radius: 5px;
+            font-family: var(--brand-font-family);
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            width: 100%;
+            height: 50px;
+            max-width: 280px;
+            justify-content: center;
+            border: 1px solid var(--brand-color-medium);
+            text-transform: uppercase;
+            cursor: pointer;
+            margin: 30px auto 0px auto;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+          }
+
+          .payplan-promo.one:hover {
+            background-color: var(--brand-color-medium);
+            border: 1px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s ease;
+          }
+
+
+
+
+          .bread-promo.bread-promo-two {
+            background: var(--buttons-hover-color);
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            min-width: 15px;
+            width: 100%;
+            max-width: 250px;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 22px;
+            display: flex;
+            margin: auto;
+            text-align: center;
+            height: 50px;
+            justify-content: center;
+            color: #FFFFFF;
+            margin: 30px auto 0px auto;
+            align-items: center;
+            font-family: var(--brand-font-family);
+
+          }
+
+
+          .bread-promo.bread-promo-two:hover {
+            color: #fff;
+            border: 1px solid #FFFFFF;
+            transition: all 0.4s ease;
+            background: var(--brand-color-medium);
+            transition: all 0.4s ease;
+          }
+
+          .payplan-learn-more {
+            font-family: var(--brand-font-family);
+            font-style: normal;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 28px;
+            color: var(--brand-color-medium);
+            text-transform: uppercase;
+            position: relative;
+            width: 100%;
+            text-align: center;
+          }
+
+      #subhead-terms {
+        color: black !important;
+      }
+
+      .payplan-three-col div {
+        margin: 50px 20px 0;
+      }
+
+      .payplan-three-col img {
+        margin-bottom: 15px;
+      }
+
+      p{
+        padding: 5px 0;
+        line-height: 1.3;
+      }
+
+      @media ALL and (min-width: 768px) {
+
+        .payplan-three-col {
+          display: flex;
+          padding: 0px 15px;
+          justify-content: space-between;
+        }
+
+        .payplan-three-col div {
+          width: 30%;
+          margin: 0;
+        }
+
+        .payplan-points {
+          margin-top: 75px;
+        }
+
+        .payplan-style h3 {
+              font-size: 1.25em !important;
+        }
+
+        p {
+          padding: 0;
+        }
+
+
+      }
+
+      .payplan-questions {
+        margin-top: 40px;
+        color: black;
+      }
+
+      .payplan-questions p {
+        font-size: 23px;
+        font-weight: bold;
+        text-align: center;
+        font-family: var(--brand-font-family);
+      }
+
+
+    </style>
+    <body>
+      <div class="payplan-header payplan-section payplan-style">
+        <div class="payplan-content-inner">
+          <h1>Financing Available</h1>
+          <p>
+            Clear, transparent terms. Fair rates. No prepayment penalties.<br /><br />
+          </p>
+          <div class="bread-promo one" id="bread-placement-1">Low Monthly Payments. Learn More</div>
+        </div>
+      </div>
+      <div class="payplan-main payplan-section payplan-style">
+        <h2>Pay Over Time</h2>
+        <p>
+          We provide easy and affordable financing through our partner,
+          <b
+            ><a
+              href="https://www.rbcroyalbank.com/personal-loans/payplan-for-consumers.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><u>PayPlan by RBC™</u></a
+            ></b
+          >, so you can pay for your purchase over time.
+        </p>
+        <div class="payplan-points">
+          <div class="payplan-three-col">
+            <div>
+              <img
+                src="https://i.imgur.com/aPfHaZ2.png"
+                alt="calendar icon"
+                style="width: 50px"
+              />
+              <h3>Affordable Monthly Plans</h3>
+              <p>
+                Buy now and pay for your purchase over time at competitive
+                interest rates.
+              </p>
+            </div>
+            <div>
+              <img
+                src="https://i.imgur.com/dfO5XM4.png"
+                alt="thumbs up icon"
+                style="width: 50px"
+              />
+              <h3>No Prepayment Penalties</h3>
+              <p>
+                Pay for your purchase with monthly payments and prepay at any
+                time without penalty.
+              </p>
+            </div>
+            <div>
+              <img
+                src="https://i.imgur.com/BK7Sumn.png"
+                alt="clock icon"
+                style="width: 50px"
+              />
+              <h3>Easy Application</h3>
+              <p>
+                Get a decision in seconds with no obligation to buy. Checking
+                your rate won't affect your credit score. Your data is safe and
+                encrypted.
+              </p>
+            </div>
+          </div>
+          <br />
+          <div class="payplan-section payplan-learn-more">
+            <br />
+            <a
+              href="https://www.rbcroyalbank.com/payplan/index.html#section-content-customers"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LEARN MORE ►</a
+            ><br /><br />
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="payplan-rate-box payplan-section payplan-style">
+        <div class="payplan-content-inner payplan-check-your-rate">
+          <p>
+            Check your rate in seconds <br />
+            without leaving our site <br />
+          </p>
+          <div class="bread-promo bread-promo-two" id="bread-placement-2">
+            Low Monthly Payments. Learn More
+          </div>
+        </div>
+      </div>
+      <div class="payplan-questions">
+        <p>
+          Questions? Check the PayPlan by RBC™ <a href="https://faq.rbcpayplan.com/customer/">FAQs</a>.
+          <sup>TM</sup> Trademark of Royal Bank of Canada. Used under licence.
+        </p>
+      </div>
+
+      <div class="payplan-footer payplan-section payplan-style">
+        <p class="payplan-disclosure"></p>
+      </div>
+
+      <script>
+        var placements = [
+          {
+            allowCheckout: false,
+            domID: "bread-placement-1",
+          },
+          {
+            allowCheckout: false,
+            domID: "bread-placement-2",
+          },
+        ];
+
+        RBCPayPlan.setup({
+          integrationKey: "e58caaf3-dec8-4eb0-9495-a5f5ff440432",
+        });
+
+        RBCPayPlan.on("INSTALLMENT:APPLICATION_CHECKOUT", () => {});
+
+        RBCPayPlan.on("INSTALLMENT:APPLICATION_DECISIONED", () => {});
+
+        RBCPayPlan.registerPlacements(placements);
+      </script>
+    </body>
+    <!-- END FINANCING PAGE CODE -->
+  </body>
+
+<!--<div id="placement"></div>
 
 <script>
   var placements = [
@@ -34,6 +462,6 @@
   window.onload = function(){
     document.getElementById("placement").click();
   }
-</script>
+</script>-->
 
 </html>
