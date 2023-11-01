@@ -1,8 +1,8 @@
-name: sample-html
+name: payplan-workaround
 static_sites:
 - environment_slug: html
   github:
     branch: main
     deploy_on_push: true
-    repo: digitalocean/sample-html
-  name: sample-html
+    repo: https://github.com/quoteddev/payplan-workaround
+  name: payplan-workaround
